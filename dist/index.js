@@ -238,7 +238,7 @@ const Docker = {
             --workdir /github/workspace \
             --cidfile "${cidfile}" \
             --rm \
-            ${image_environment_factory_1.default.getEnvVarString(parameters)} \
+            "${image_environment_factory_1.default.getEnvVarString(parameters)}" \
             --env GIT_CONFIG_EXTENSIONS \
             --env TEST_PLATFORMS="${testPlatforms}" \
             --env GITHUB_WORKSPACE="/github/workspace" \
@@ -1016,7 +1016,7 @@ const ResultsCheck = {
                 core.info(`Processing file ${filepath}...`);
                 try {
                     const content = fs.readFileSync(path_1.default.join(artifactsPath, filepath), 'utf8');
-                    if (!content.includes('<test-results') && !content.includes('<test-run')) {
+                    if (!content.includes('<test-run')) {
                         // noinspection ExceptionCaughtLocallyJS
                         throw new Error('File does not appear to be a NUnit XML file');
                     }

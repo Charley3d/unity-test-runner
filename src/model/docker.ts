@@ -78,7 +78,7 @@ const Docker = {
             --workdir /github/workspace \
             --cidfile "${cidfile}" \
             --rm \
-            ${ImageEnvironmentFactory.getEnvVarString(parameters)} \
+            "${ImageEnvironmentFactory.getEnvVarString(parameters)}" \
             --env GIT_CONFIG_EXTENSIONS \
             --env TEST_PLATFORMS="${testPlatforms}" \
             --env GITHUB_WORKSPACE="/github/workspace" \
